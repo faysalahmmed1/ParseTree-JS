@@ -10,31 +10,52 @@
 </head>
 
 <body>
-    <header>
+    <header style="background-color: rgb(19, 44, 3);">
         <img src="assets/Logo.svg" alt="">
         <h1>Parser Check</h1>
     </header>
+
     <main>
-        <form id="parser-form">
-            <label for="parser-select">Choose a Parser:
-                <select name="parsers" id="parser-select" required>
-                    <option value="">--Please choose an option--</option>
-                    <option value="RDP">Recursive descent parser</option>
-                    <option value="ll1">LL(1)</option>
-                    <option value="lr1">CLR(1)</option>
-                    <option value="slr">SLR(1)</option>
-                    <option value="lalr1">LALR(1)</option>
-                    <!-- <option value="clr1">CLR(1)</option> -->
-                    <option value="opp">Operator precedence parser</option>
-                </select>
-            </label>
+        <div">
+            <form id="parser-form">
+                <label for="parser-select">Choose a Parser:
+                    <select name="parsers" id="parser-select" required>
+                        <option value="">--Please choose an option--</option>
+                    
+                        <!-- Left-to-right Scanning -->
+                        <option value="ll1">LL(1)</option>
 
-            <div class="submit">
-                <input type="submit" value="Submit" />
+                    </select>
+                </label>
+
+                <div class="submit">
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+
             </div>
-        </form>
-    </main>
 
+    </main>
+    <div style="margin-top: 150px; display: flex;  background-color: rgb(75, 12, 36); padding: 15px ; color: white; ;">
+        <div style="margin-left: 30px;">
+            <h1>Our Team Member:</h1>
+            <br>
+            <h3 style="color: rgb(230, 216, 22);">
+                <span>1. Shahariar Shahin -</span>
+                <small>Roll: 36</small>
+                <br>
+                <span>2. Faysal Ahmmed -</span>
+                <small>Roll: 37</small>
+                <br>
+                <span>3. Rezaul Karim Bhuiyan Mishal -</span>
+                <small>Roll: 53</small>
+                <br>
+                <span>3. Imran Hasan -</span>
+                <small>Roll: 34</small>
+            </h3>
+        </div>
+       
+    </div>
     <script src="main.js">
     </script>
     <script src="js/noStealing.js">
@@ -42,3 +63,36 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Canonical LR parsing -->
+                        <!-- <option value="lr1">CLR(1)</option> -->
+
+                        <!-- Simple LR (Left-to-right, Rightmost derivation) -->
+                        <!-- <option value="slr">SLR(1)</option> -->
+
+                        <!-- Look-Ahead LR (Left-to-right, Rightmost derivation) -->
+                        <!-- <option value="lalr1">LALR(1)</option> -->
+
+                        <!-- <option value="clr1">CLR(1)</option> -->
+                        <!-- <option value="opp">Operator precedence parser</option> -->
