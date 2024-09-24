@@ -21,10 +21,10 @@
                 <label for="parser-select">Choose a Parser:
                     <select name="parsers" id="parser-select" required>
                         <option value="">--Please choose an option--</option>
-                    
-                        <!-- Left-to-right Scanning -->
                         <option value="ll1">LL(1)</option>
-
+                        <option value="lr1">CLR(1)</option>
+                        <option value="slr">SLR(1)</option>
+                        <option value="lalr1">LALR(1)</option>
                     </select>
                 </label>
 
@@ -86,13 +86,4 @@
 
 
 <!-- Canonical LR parsing -->
-                        <!-- <option value="lr1">CLR(1)</option> -->
-
-                        <!-- Simple LR (Left-to-right, Rightmost derivation) -->
-                        <!-- <option value="slr">SLR(1)</option> -->
-
-                        <!-- Look-Ahead LR (Left-to-right, Rightmost derivation) -->
-                        <!-- <option value="lalr1">LALR(1)</option> -->
-
-                        <!-- <option value="clr1">CLR(1)</option> -->
-                        <!-- <option value="opp">Operator precedence parser</option> -->
+                        

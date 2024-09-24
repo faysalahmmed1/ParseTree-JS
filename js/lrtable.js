@@ -1,12 +1,14 @@
 
 
 function LRTable(closureTable) {
-
+	// <PUBLIC>
 	
 	this.grammar = closureTable.grammar;
 	this.states = [];
 	
+	// </PUBLIC>
 	
+	// <INITIALIZATION>
 	
 	for (var i in closureTable.kernels) {
 		var kernel = closureTable.kernels[i];
@@ -32,26 +34,29 @@ function LRTable(closureTable) {
 		}
 	}
 	
-	
+	// </INITIALIZATION>
 }
 
-
+/**
+ * @param states
+ * <br>Input-output
+ */
 function State(states) {
-
+	// <PUBLIC>
 	
 	this.index = states.length;
 	
-
+	// </PUBLIC>
 	
-	
+	// <INITIALIZATION>
 	
 	states.push(this);
 
-	
+	// <//INITIALIZATION>
 }
 
 function LRAction(actionType, actionValue) {
-	
+	// <PUBLIC>
 	
 	this.actionType = actionType;
 	this.actionValue = actionValue;
@@ -60,7 +65,7 @@ function LRAction(actionType, actionValue) {
 		return this.actionType + this.actionValue;
 	};
 	
-	
+	// </PUBLIC>
 }
 
 function chooseActionElement(state, token) {

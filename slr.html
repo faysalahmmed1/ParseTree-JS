@@ -120,20 +120,7 @@ function grammarChanged() {
 }
 
 {
-	/*
-	 * (0) A' -> A
-	 * (1) A -> B
-	 * (2) A -> ''
-	 * (3) B -> ( A )
-	 *
-	 * FIRST(A') = { '', ( }
-	 * FIRST(A) = { '', ( }
-	 * FIRST(B) = { ( }
-	 *
-	 * FOLLOW(A') = { $ }
-	 * FOLLOW(A) = { $, ) }
-	 * FOLLOW(B) = { $, ) }
-	 */
+	
 	var grammar = new Grammar('A\' -> A\nA -> B\nA -> \'\'\nB -> ( A )');
 	
 	assertEquality('A\'', grammar.axiom);
@@ -142,30 +129,13 @@ function grammarChanged() {
 	assertEquality(['$', ')'].toString(), grammar.follows['A'].toString());
 	assertEquality('A -> .b', new Item(new Rule(grammar, 'A -> b'), 0).toString());
 	
-	/*
-	 *              closure { A' -> .A }    = 0 = { A' -> .A; A -> .B; A -> .; B -> .( A ) }
-	 * goto(0, A) = closure { A' -> A. }    = 1 = { A' -> A. }
-	 * goto(0, B) = closure { A -> B. }     = 2 = { A -> B. }
-	 * goto(0, () = closure { B -> (.A ) }  = 3 = { B -> (.A ); A -> .B; A -> .; B -> .( A ) }
-	 * goto(3, A) = closure { B -> ( A.) }  = 4 = { B -> ( A.) }
-	 * goto(3, B) = closure { A -> B. }     = 2
-	 * goto(3, () = closure { B -> (.A ) }  = 3
-	 * goto(4, )) = closure { B -> ( A ). } = 5 = { B -> ( A ). }
-	 */
+	
 	var lrClosureTable = new LRClosureTable(grammar);
 	
 	assertEquality(4, lrClosureTable.kernels[0].closure.length);
 	assertEquality(6, lrClosureTable.kernels.length);
 	
-	/*
-	 *   (  )  $  A' A B
-	 * 0 s3 r2 r2    1 2
-	 * 1       r0
-	 * 2    r1 r1
-	 * 3 s3 r2 r2    4 2
-	 * 4    s5
-	 * 5    r3 r3
-	 */
+	
 	var lrTable = new LRTable(lrClosureTable);
 	
 	assertEquality(6, lrTable.states.length);
@@ -174,9 +144,7 @@ function grammarChanged() {
 	assertEquality('4', lrTable.states[3]['A']);
 }
 
-// </TEST>
 
-// <INITIALIZATION>
 
 {
 	var grammar = new Grammar('E\' -> E\n\
@@ -194,7 +162,7 @@ $('lrParseView').innerHTML = formatInitialParseView('id + id * id', 100);
 
 grammarChanged();
 
-// </INITIALIZATION>
+
 
 // -->
 </script>

@@ -2,25 +2,27 @@
 
 (function() {
 
-
-
-  var root = this;
-
-
-  var previousUnderscore = root._;
-
-  var breaker = {};
+  
+  
 
  
-  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
+  var root = this;
 
+  
+  var previousUnderscore = root._;
+
+ 
+  var breaker = {};
+
+
+  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
 
   var slice            = ArrayProto.slice,
       unshift          = ArrayProto.unshift,
       toString         = ObjProto.toString,
       hasOwnProperty   = ObjProto.hasOwnProperty;
 
-
+ 
   var
     nativeForEach      = ArrayProto.forEach,
     nativeMap          = ArrayProto.map,
@@ -35,10 +37,10 @@
     nativeKeys         = Object.keys,
     nativeBind         = FuncProto.bind;
 
-  
+
   var _ = function(obj) { return new wrapper(obj); };
 
-  
+ 
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = _;
     _._ = _;
@@ -50,8 +52,7 @@
   
   _.VERSION = '1.1.7';
 
-
-
+ 
 
 
   var each = _.each = _.forEach = function(obj, iterator, context) {
@@ -71,6 +72,7 @@
     }
   };
 
+  
   _.map = function(obj, iterator, context) {
     var results = [];
     if (obj == null) return results;
@@ -100,7 +102,6 @@
     if (!initial) throw new TypeError("Reduce of empty array with no initial value");
     return memo;
   };
-
 
   _.reduceRight = _.foldr = function(obj, iterator, memo, context) {
     if (obj == null) obj = [];
@@ -135,6 +136,7 @@
     return results;
   };
 
+
   _.reject = function(obj, iterator, context) {
     var results = [];
     if (obj == null) return results;
@@ -144,7 +146,7 @@
     return results;
   };
 
- 
+
   _.every = _.all = function(obj, iterator, context) {
     var result = true;
     if (obj == null) return result;
@@ -167,6 +169,7 @@
     return !!result;
   };
 
+
   _.include = _.contains = function(obj, target) {
     var found = false;
     if (obj == null) return found;
@@ -176,6 +179,7 @@
     });
     return found;
   };
+
 
   _.invoke = function(obj, method) {
     var args = slice.call(arguments, 2);
@@ -211,6 +215,7 @@
     return result.value;
   };
 
+
   _.sortBy = function(obj, iterator, context) {
     return _.pluck(_.map(obj, function(value, index, list) {
       return {
@@ -223,7 +228,7 @@
     }), 'value');
   };
 
-  // Groups the object's values by a criterion produced by an iterator
+
   _.groupBy = function(obj, iterator) {
     var result = {};
     each(obj, function(value, index) {
@@ -233,8 +238,7 @@
     return result;
   };
 
-  // Use a comparator function to figure out at what index an object should
-  // be inserted so as to maintain order. Uses binary search.
+
   _.sortedIndex = function(array, obj, iterator) {
     iterator || (iterator = _.identity);
     var low = 0, high = array.length;
@@ -245,7 +249,7 @@
     return low;
   };
 
-  // Safely convert anything iterable into a real, live array.
+
   _.toArray = function(iterable) {
     if (!iterable)                return [];
     if (iterable.toArray)         return iterable.toArray();
@@ -254,40 +258,31 @@
     return _.values(iterable);
   };
 
-  // Return the number of elements in an object.
+
   _.size = function(obj) {
     return _.toArray(obj).length;
   };
 
-  // Array Functions
-  // ---------------
 
-  // Get the first element of an array. Passing **n** will return the first N
-  // values in the array. Aliased as `head`. The **guard** check allows it to work
-  // with `_.map`.
   _.first = _.head = function(array, n, guard) {
     return (n != null) && !guard ? slice.call(array, 0, n) : array[0];
   };
 
-  // Returns everything but the first entry of the array. Aliased as `tail`.
-  // Especially useful on the arguments object. Passing an **index** will return
-  // the rest of the values in the array from that index onward. The **guard**
-  // check allows it to work with `_.map`.
+
   _.rest = _.tail = function(array, index, guard) {
     return slice.call(array, (index == null) || guard ? 1 : index);
   };
 
-  // Get the last element of an array.
+
   _.last = function(array) {
     return array[array.length - 1];
   };
 
-  // Trim out all falsy values from an array.
   _.compact = function(array) {
     return _.filter(array, function(value){ return !!value; });
   };
 
-  // Return a completely flattened version of an array.
+
   _.flatten = function(array) {
     return _.reduce(array, function(memo, value) {
       if (_.isArray(value)) return memo.concat(_.flatten(value));

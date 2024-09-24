@@ -1,6 +1,6 @@
 
 function parseInput() {
-	
+	// TODO refactoring
 	var stack = [0];
 	
 	function stateIndex() {

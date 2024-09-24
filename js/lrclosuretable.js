@@ -1,12 +1,14 @@
 
 
 function LRClosureTable(grammar) {
-	
+	// <PUBLIC>
 	
 	this.grammar = grammar;
 	this.kernels = [];
 	
-
+	// </PUBLIC>
+	
+	// <INITIALIZATION>
 	
 	this.kernels.push(new Kernel(0, [new Item(grammar.rules[0], 0)], grammar));
 	
@@ -22,9 +24,14 @@ function LRClosureTable(grammar) {
 		}
 	}
 	
-
+	// </INITIALIZATION>
 	
-
+	// <PRIVATE>
+	
+	/**
+	 * @param kernel
+	 * <br>Input-output
+	 */
 	function updateClosure(kernel) {
 		for (var i = 0; i < kernel.closure.length; ++i) {
 			var newItemsFromSymbolAfterDot = kernel.closure[i].newItemsFromSymbolAfterDot();
@@ -35,7 +42,12 @@ function LRClosureTable(grammar) {
 		}
 	}
 	
-	
+	/**
+	 * @param kernel
+	 * <br>Input-output
+	 * @param kernels
+	 * <br>Input-output
+	 */
 	function addGotos(kernel, kernels) {
 		var lookAheadsPropagated = false;
 		var newKernels = new Object();
@@ -76,7 +88,7 @@ function LRClosureTable(grammar) {
 }
 
 function Kernel(index, items, grammar) {
-	
+	// <PUBLIC>
 	
 	this.index = index;
 	this.items = items;
@@ -92,5 +104,5 @@ function Kernel(index, items, grammar) {
 		return 'closure{' + this.items + '} = {' + this.closure + '}';
 	};
 	
-	
+	// </PUBLIC>
 }

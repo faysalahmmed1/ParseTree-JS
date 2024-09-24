@@ -1,6 +1,5 @@
 
 
-
 function Tree(value, children) {
 	this.value = value;
 	this.children = children;

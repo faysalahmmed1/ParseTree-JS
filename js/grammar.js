@@ -1,8 +1,9 @@
 
+
 var EPSILON = '\'\'';
 
 function Grammar(text) {
-	
+	// <PUBLIC>
 	
 	this.alphabet = [];
 	this.nonterminals = [];
@@ -29,7 +30,13 @@ function Grammar(text) {
 		return result;
 	};
 	
-
+	/**
+	 * @param sequence
+	 * <br>Array of symbols
+	 * @result
+	 * <br>Array of terminal symbols
+	 * <br>New
+	 */
 	this.getSequenceFirsts = function(sequence) {
 		var result = [];
 		var epsilonInSymbolFirsts = true;
@@ -66,16 +73,23 @@ function Grammar(text) {
 		return result;
 	};
 	
-
+	// </PUBLIC>
+	
+	// <INITIALIZATION>
 	
 	initializeRulesAndAlphabetAndNonterminals(this);
 	initializeAlphabetAndTerminals(this);
 	initializeFirsts(this);
 	initializeFollows(this);
 	
-
+	// </INITIALIZATION>
 	
-
+	// <PRIVATE>
+	
+	/**
+	 * @param grammar
+	 * <br>Input-output
+	 */
 	function initializeRulesAndAlphabetAndNonterminals(grammar) {
 		var lines = text.split('\n');
 		
@@ -97,7 +111,10 @@ function Grammar(text) {
 		}
 	}
 	
-	
+	/**
+	 * @param grammar
+	 * <br>Input-output
+	 */
 	function initializeAlphabetAndTerminals(grammar) {
 		for (var i in grammar.rules) {
 			var rule = grammar.rules[i];
@@ -113,7 +130,10 @@ function Grammar(text) {
 		}
 	}
 	
-	
+	/**
+	 * @param grammar
+	 * <br>Input-output
+	 */
 	function initializeFirsts(grammar) {
 		var notDone;
 		
@@ -133,7 +153,16 @@ function Grammar(text) {
 		} while (notDone);
 	}
 	
-	
+	/**
+	 * @param grammar
+	 * <br>Input-output
+	 * @param development
+	 * <br>Array of symbols
+	 * @param nonterminalFirsts
+	 * <br>Array of symbols
+	 * <br>Input-output
+	 * @return <code>true</code> If <code>nonterminalFirsts</code> has been modified
+	 */
 	function collectDevelopmentFirsts(grammar, development, nonterminalFirsts) {
 		var result = false;
 		var epsilonInSymbolFirsts = true;

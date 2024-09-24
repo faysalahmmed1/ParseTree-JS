@@ -55,7 +55,11 @@ function getOrCreateArray(dictionary, key) {
 	return result;
 }
 
-
+/**
+ * @return
+ * <br>Array
+ * <br>New
+ */
 function trimElements(array) {
 	var result = [];
 	
@@ -76,7 +80,11 @@ function isElement(element, array) {
 	return false;
 }
 
-
+/**
+ * @param array
+ * <br>Input-output
+ * @return <code>true</code> iff <code>array</code> has been modified
+ */
 function addUnique(element, array) {
 	if (!isElement(element, array)) {
 		array.push(element);
@@ -97,7 +105,11 @@ function isElementUsingEquals(element, array) {
 	return false;
 }
 
-
+/**
+ * @param array
+ * <br>Input-output
+ * @return <code>true</code> iff <code>array</code> has been modified
+ */
 function addUniqueUsingEquals(element, array) {
 	if (!isElementUsingEquals(element, array)) {
 		array.push(element);
@@ -108,7 +120,10 @@ function addUniqueUsingEquals(element, array) {
 	return false;
 }
 
-
+/**
+ * @return
+ * <br>Range: <code>[-1 .. array.length - 1]</code>
+ */
 function indexOfUsingEquals(element, array) {
 	for (var i in array) {
 		if (element.equals(array[i])) {

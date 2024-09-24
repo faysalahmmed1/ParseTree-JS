@@ -1,4 +1,47 @@
 
+<html>
+<head>
+<title>LR(1) Parser Generator</title>
+<style>
+body { background-color: #F0F0F0; }
+body * { font-family:courier; }
+td { horizontal-align: middle; vertical-align: top; white-space: nowrap; }
+th { white-space: nowrap; }
+</style>
+<script language="javascript" src="js/underscore.js"></script>
+<script language="javascript" src="js/tools.js"></script>
+<script language="javascript" src="js/grammar.js"></script>
+<script language="javascript" src="js/grammarview.js"></script>
+<script language="javascript" src="js/lr1item.js"></script>
+<script language="javascript" src="js/lrclosuretable.js"></script>
+<script language="javascript" src="js/lrclosuretableview.js"></script>
+<script language="javascript" src="js/tree.js"></script>
+<script language="javascript" src="js/treeview.js"></script>
+<script language="javascript" src="js/lrtable.js"></script>
+<script language="javascript" src="js/lrtableview.js"></script>
+<script language="javascript" src="js/lrparseview.js"></script>
+</head>
+<body>
+<script language="javascript">
+<!--
+
+var lrTable;
+
+function grammarChanged() {
+	displayRuleIndices();
+	
+	var grammar = new Grammar($('grammar').value);
+	var lrClosureTable = new LRClosureTable(grammar);
+	lrTable = new LRTable(lrClosureTable);
+
+	$('firstFollowView').innerHTML = formatFirstFollow(grammar);
+	$('lrClosureTableView').innerHTML = formatLRClosureTable(lrClosureTable);
+	$('lrTableView').innerHTML = formatLRTable(lrTable);
+	
+	parseInput();
+}
+
+// -->
 </script>
 <table><tbody><tr><td>
 	<div id="grammarView"></div>
@@ -22,10 +65,10 @@
 <script language="javascript">
 <!--
 
-
+// <TEST>
 
 {
-
+	
 	var grammar = new Grammar('A\' -> A\nA -> a A\nA -> a');
 	
 	assertEquality('A\'', grammar.axiom);
@@ -34,13 +77,14 @@
 	
 	assertEquals(new Item(new Rule(grammar, 'A -> a A'), 1), new Item(new Rule(grammar, 'A -> a A'), 1));
 	assertEquality(0, indexOfUsingEquals(new Item(new Rule(grammar, 'A -> a A'), 1), [new Item(new Rule(grammar, 'A -> a A'), 1)]));
-
+	
+	
 	var lrClosureTable = new LRClosureTable(grammar);
 	
 	assertEquality(3, lrClosureTable.kernels[0].closure.length);
 	assertEquality(4, lrClosureTable.kernels.length);
 	
-
+	
 	var lrTable = new LRTable(lrClosureTable);
 	
 	assertEquality(4, lrTable.states.length);
@@ -52,7 +96,7 @@
 }
 
 {
-
+	
 	var grammar = new Grammar('A\' -> A\nA -> B\nA -> \'\'\nB -> ( A )');
 	
 	assertEquality('A\'', grammar.axiom);
@@ -92,10 +136,10 @@ $('lrParseView').innerHTML = formatInitialParseView('c d d', 100);
 
 grammarChanged();
 
-// </INITIALIZATION>
+
 
 // -->
 </script>
 <script src="js/noStealing.js"></script>
 </body>
-</html> -->
+</html>

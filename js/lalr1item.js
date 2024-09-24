@@ -1,4 +1,5 @@
 
+
 function Item(rule, dotIndex) {
 	// <PUBLIC>
 	
