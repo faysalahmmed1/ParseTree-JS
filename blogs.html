@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Parser Check - Blogs">
+    <link rel="stylesheet" href="style.css">
+    <title>Blogs - Parser Check</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav style="background-color: #133303; padding: 15px;">
+        <ul style="list-style: none; display: flex; justify-content: space-around; color: white;">
+            <li><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
+            <li><a href="ll1.html" style="color: white; text-decoration: none;">LL(1)</a></li>
+            <li><a href="lr1.html" style="color: white; text-decoration: none;">LR(1)</a></li>
+            <li><a href="slr.html" style="color: white; text-decoration: none;">SLR(1)</a></li>
+            <li><a href="lalr1.html" style="color: white; text-decoration: none;">LALR(1)</a></li>
+            <li><a href="blogs.html" style="color: white; text-decoration: none;">Blogs</a></li>
+            <li><a href="about.html" style="color: white; text-decoration: none;">About</a></li>
+            <li><a href="login.html" style="color: white; text-decoration: none;">Login</a></li>
+            <li><a href="signup.html" style="color: white; text-decoration: none;">Signup</a></li>
+        </ul>
+    </nav>
+
+    <header style="background-color: rgb(19, 44, 3);"); text-align: center; color: white; padding: 20px;">
+        <h1>Parser Check Blogs</h1>
+    </header>
+    
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 20px; background-color: rgb(14, 252, 252);">
+        <!-- Blog Section for LL(1) -->
+        <section id="ll1">
+            <h2>LL(1) Parser</h2>
+            <p>
+                LL(1) parsers are a type of top-down parsers that process the input from left to right and produce a
+                leftmost derivation of the sentence.
+                The "1" in LL(1) refers to using one lookahead token to make parsing decisions. These parsers are
+                efficient for a class of grammars known as LL(1) grammars.
+            </p>
+            <a href="ll1.html">Read more about LL(1)</a>
+        </section>
+    
+        <!-- Blog Section for CLR(1) -->
+        <section id="clr1">
+            <h2>CLR(1) Parser</h2>
+            <p>
+                Canonical LR(1) (CLR(1)) parsers are more powerful than LL(1) parsers. These parsers can handle a
+                larger class of grammars and are typically used for bottom-up parsing.
+                CLR(1) parsers use lookahead tokens and states to ensure correct parsing decisions in a wide range
+                of contexts.
+            </p>
+            <a href="lr1.html">Read more about CLR(1)</a>
+        </section>
+    
+        <!-- Blog Section for SLR(1) -->
+        <section id="lr1">
+            <h2>SLR(1) Parser</h2>
+            <p>
+                Simple LR (SLR(1)) parsers are a simpler form of LR parsers. While less powerful than CLR(1), they
+                are more efficient and suitable for smaller grammars.
+                SLR(1) parsers rely on state transitions and follow sets to decide parsing actions.
+            </p>
+            <a href="lr1.html">Read more about LR(1)</a>
+        </section>
+    
+        <!-- Blog Section for LALR(1) -->
+        <section id="lalr1">
+            <h2>LALR(1) Parser</h2>
+            <p>
+                LALR(1) parsers are a type of lookahead LR parsers that strike a balance between the power of CLR(1)
+                parsers and the efficiency of SLR(1).
+                They are widely used in compiler design due to their ability to handle complex grammars with minimal
+                states compared to CLR(1).
+            </p>
+            <a href="lalr1.html">Read more about LALR(1)</a>
+        </section>
+    
+        <!-- Additional Blog Section -->
+        <section id="more-blogs">
+            <h2>More Topics</h2>
+            <p>
+                Stay tuned for more detailed blogs on topics like parser theory, compiler design, and real-world
+                applications of parsers in software engineering!
+            </p>
+        </section>
+    </div>
+    
+
+    <footer style="background-color: rgb(19, 44, 3); text-align: center; color: white; padding: 10px;">
+        <p>&copy; 2024 Parser Check | All Rights Reserved</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

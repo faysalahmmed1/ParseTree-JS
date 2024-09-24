@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,13 +11,28 @@
 </head>
 
 <body>
+    <!-- Navigation Bar -->
+    <nav style="background-color: #1e00ff; padding: 20px;">
+        <ul style="list-style: none; display: flex; justify-content: space-around; color: white;">
+            <li><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
+            <li><a href="ll1.html" style="color: white; text-decoration: none;">LL(1)</a></li>
+            <li><a href="lr1.html" style="color: white; text-decoration: none;">LR(1)</a></li>
+            <li><a href="slr.html" style="color: white; text-decoration: none;">SLR(1)</a></li>
+            <li><a href="lalr1.html" style="color: white; text-decoration: none;">LALR(1)</a></li>
+            <li><a href="blogs.html" style="color: white; text-decoration: none;">Blogs</a></li>
+            <li><a href="about.html" style="color: white; text-decoration: none;">About</a></li>
+            <li><a href="login.html" style="color: white; text-decoration: none;">Login</a></li>
+            <li><a href="signup.html" style="color: white; text-decoration: none;">Signup</a></li>
+        </ul>
+    </nav>
+
     <header style="background-color: rgb(19, 44, 3);">
         <img src="assets/Logo.svg" alt="">
         <h1>Parser Check</h1>
     </header>
 
     <main>
-        <div">
+        <div style="padding: 44px;">
             <form id="parser-form">
                 <label for="parser-select">Choose a Parser:
                     <select name="parsers" id="parser-select" required>
@@ -32,58 +48,25 @@
                     <input type="submit" value="Submit" />
                 </div>
             </form>
-
-            </div>
-
+        </div>
     </main>
-    <div style="margin-top: 150px; display: flex;  background-color: rgb(75, 12, 36); padding: 15px ; color: white; ;">
+
+    <div style="margin-top: 150px; display: flex; background-color: rgb(75, 12, 36); padding: 15px; color: white;">
         <div style="margin-left: 30px;">
             <h1>Our Team Member:</h1>
             <br>
             <h3 style="color: rgb(230, 216, 22);">
-                <span>1. Shahariar Shahin -</span>
-                <small>Roll: 36</small>
-                <br>
                 <span>2. Faysal Ahmmed -</span>
                 <small>Roll: 37</small>
                 <br>
                 <span>3. Rezaul Karim Bhuiyan Mishal -</span>
                 <small>Roll: 53</small>
-                <br>
-                <span>3. Imran Hasan -</span>
-                <small>Roll: 34</small>
             </h3>
         </div>
-       
     </div>
-    <script src="main.js">
-    </script>
-    <script src="js/noStealing.js">
-    </script>
+
+    <script src="main.js"></script>
+    <script src="js/noStealing.js"></script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Canonical LR parsing -->
-                        
