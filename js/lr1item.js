@@ -1,11 +1,11 @@
 
 
-// function Item(rule, dotIndex) {
-// 	// <PUBLIC>
+function Item(rule, dotIndex) {
+	// <PUBLIC>
 	
-// 	extend(this, new BasicLR1Item(rule, dotIndex));
+	extend(this, new BasicLR1Item(rule, dotIndex));
 	
-// 	// </PUBLIC>
-// }
+	// </PUBLIC>
+}
 
-// Item.prototype.grammarType = 'LR(1)';
+Item.prototype.grammarType = 'LR(1)';

@@ -1,12 +1,12 @@
 
-// function Item(rule, dotIndex) {
-// 	// <PUBLIC>
+function Item(rule, dotIndex) {
+	// <PUBLIC>
 	
-// 	extend(this, new BasicLR1Item(rule, dotIndex));
+	extend(this, new BasicLR1Item(rule, dotIndex));
 	
-// 	this.equals = this.zuper.zuper.equals;
+	this.equals = this.zuper.zuper.equals;
 	
-// 	// </PUBLIC>
-// }
+	// </PUBLIC>
+}
 
-// Item.prototype.grammarType = 'LALR(1)';
+Item.prototype.grammarType = 'LALR(1)';
